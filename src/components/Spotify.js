@@ -1,8 +1,8 @@
-import './App.css';
+import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Container, InputGroup, FormControl, Button, Row, Cards, Card  } from 'react-bootstrap'  
 import { useState, useEffect } from 'react';
-function App() {
+function Spotify() {
   const [searchInput, setSearchInput] = useState("");
   const [accessToken, setAccessToken] = useState(""); 
   const [ albums, setAlbums ] = useState([]);
@@ -48,7 +48,7 @@ function App() {
 
   return (
     <div className="App">
-      <Container>
+      <Container className="mt-3">
         <InputGroup className="mb-3" size="large">
           <FormControl
           placeholder="Search.."
@@ -60,14 +60,14 @@ function App() {
           }}
           onChange={ event => setSearchInput(event.target.value)}
           />
-          <button onClick={ (event) => {
-          }}>Search</button>
+          <Button onClick={ (event) => {
+          }}>Search</Button>
         </InputGroup>
       </Container>
       <Container>
         <Row className="mx-2 row row-cols-4">
         { albums.map( (album, i) => {console.log(album);
-          return (<Card>
+          return (<Card className="mb-2 mt-2">
           <Card.Img src={album.images[0].url}/>
           <Card.Body>
           <Card.Title>{album.name}</Card.Title>
@@ -85,4 +85,4 @@ function App() {
   );
 }
 
-export default App;
+export default Spotify;
